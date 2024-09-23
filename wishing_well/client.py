@@ -14,7 +14,7 @@ from .util import get_cache_path
 
 
 class Client:
-    API_BASE_URL = 'https://hk4e-api-os.hoyoverse.com/event/gacha_info/api/'
+    API_BASE_URL = 'https://public-operation-hk4e-sg.hoyoverse.com/gacha_info/api/'
 
     def __init__(self):
         self._region = None
@@ -158,7 +158,7 @@ class Client:
             cache_file = fp.read()
 
         url = None
-        regex = re.compile(b'(https://webstatic-sea.hoyoverse.com/genshin/event/.+?)\0')
+        regex = re.compile(b'(https://public-operation-hk4e-sg.hoyoverse.com/gacha_info/api/getGachaLog.+?)\0')
         matches = regex.findall(cache_file)
         if len(matches) > 0:
             url = matches[-1].decode('utf-8')
